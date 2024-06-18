@@ -1,7 +1,6 @@
 ---
 - name: Fetch current configuration from Fortigate firewall
   hosts: 10.241.14.12
-  connection: paramiko
   gather_facts: no
 
   tasks:
