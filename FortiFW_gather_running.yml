@@ -1,0 +1,18 @@
+---
+- name: Fetch current configuration from Fortigate firewall
+  hosts: 10.241.14.12
+  gather_facts: no
+
+  tasks:
+    - name: Gather current configuration
+      fortinet.fortios.fortios_config:
+        vdom: "root"
+        access_token: "{{ fortigate_token }}"
+        state: "get"
+        config: "system"
+        subconfig: "global"
+      register: current_config
+
+    - name: Display current configuration
+      debug:
+        msg: "{{ current_config }}"
