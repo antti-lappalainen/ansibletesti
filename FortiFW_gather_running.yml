@@ -4,14 +4,13 @@
   gather_facts: no
 
   tasks:
-    - name: Gather current configuration
-      fortinet.fortios.fortios_config:
-        vdom: "root"
-        access_token: "{{ fortigate_token }}"
-        state: "get"
-        config: "system"
-        subconfig: "global"
-      register: current_config
+    - name: get single
+      fortinet.fortios.fortios_configuration_fact:
+      vdom: root
+      access_token: ""
+      selector: log_custom-field
+      params:
+          id: "3"
 
     - name: Display current configuration
       debug:
