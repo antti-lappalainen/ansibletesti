@@ -4,13 +4,11 @@
   gather_facts: no
 
   tasks:
-    - name: get single
+    - name: get all
       fortinet.fortios.fortios_configuration_fact:
-      vdom: root
-      access_token: ""
-      selector: log_custom-field
-      params:
-          id: "3"
+         vdom: root
+         access_token: ""
+         selector: log_custom-field
 
     - name: Display current configuration
       debug:
