@@ -6,8 +6,8 @@
     - name: Set timestamp variable
       set_fact:
         backup_timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
-        backup_username: "{{ lookup('env', 'BACKUP_USERNAME') }}"
-        backup_password: "{{ lookup('env', 'BACKUP_PASSWORD') }}"
+        backup_username: jc
+        backup_password: "{{ lookup('env', 'backupcred') }}"
     
     - name: Run the backup command
       raw: "execute backup config sftp fortibackup_{{ backup_timestamp }}.txt 10.241.14.10:22 {{ backup_username }} {{ backup_password }}"
