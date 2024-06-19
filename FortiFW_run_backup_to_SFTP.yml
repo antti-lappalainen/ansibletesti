@@ -17,6 +17,6 @@
       debug:
         msg: "Executing command: {{ backup_command }}"
 
-    - name: Run the backup command
-      raw: "{{ backup_command }}"
-      register: backup_command_output
+#    - name: Run the backup command
+#      raw: "{{ backup_command }}"
+#      register: backup_command_output
