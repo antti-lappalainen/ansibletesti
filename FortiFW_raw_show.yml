@@ -1,6 +1,6 @@
 ---
 - name: Execute command on remote host
-  hosts: all
+  hosts: 10.241.14.12
   gather_facts: no
   tasks:
     - name: Run the 'show' command
