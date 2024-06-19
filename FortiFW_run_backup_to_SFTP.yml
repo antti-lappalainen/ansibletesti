@@ -5,6 +5,5 @@
 
   tasks:
     - name: Run backup command
-      ansible.builtin.shell:
         cmd: "execute backup config sftp fortibackup.txt 10.241.14.10:22 jc Vc9dq2WFiX8kG0OnTuhF"
       register: show_output
