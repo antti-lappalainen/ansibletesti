@@ -13,10 +13,10 @@
       set_fact:
         backup_command: "execute backup config sftp {{ backup_filename }} {{ backup_server }} {{ backup_username }} {{ backup_password }}"
 
-    - name: Display the backup command
-      debug:
-        msg: "Executing command: {{ backup_command }}"
+#    - name: Display the backup command
+#      debug:
+#        msg: "Executing command: {{ backup_command }}"
 
-#    - name: Run the backup command
-#      raw: "{{ backup_command }}"
-#      register: backup_command_output
+    - name: Run the backup command
+      raw: "{{ backup_command }}"
+      register: backup_command_output
