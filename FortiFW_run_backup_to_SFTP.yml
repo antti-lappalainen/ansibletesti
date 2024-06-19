@@ -1,7 +1,8 @@
 ---
-- name: Execute command on remote host
+- name: Execute backup command on FortiGate device
   hosts: 10.241.14.12
   gather_facts: no
   tasks:
-    - name: Run the 'show' command
+    - name: Run the backup command
       raw: execute backup config sftp fortibackup.txt 10.241.14.10:22 jc Vc9dq2WFiX8kG0OnTuhF
+      register: backup_command_output
