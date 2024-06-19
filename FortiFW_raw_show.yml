@@ -1,0 +1,7 @@
+---
+- name: Execute command on remote host
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run the 'show' command
+      raw: show
