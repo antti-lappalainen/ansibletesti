@@ -12,3 +12,7 @@
     - name: Run the backup command
       raw: "execute backup config sftp fortibackup_{{ backup_timestamp }}.txt 10.241.14.10:22 {{ ansible_user }} {{ ansible_ssh_pass }}"
       register: backup_command_output
+
+    - name: Display the output of the backup command
+      debug:
+        var: backup_command_output.stdout
