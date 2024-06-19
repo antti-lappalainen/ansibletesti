@@ -5,14 +5,14 @@
   vars:
     backup_server: "10.241.14.10:22"
     backup_filename: "fortibackup_{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}.txt"
+    backup_username: "{{ lookup('env', 'ANSIBLE_NET_USERNAME') }}"
+    backup_password: "{{ lookup('env', 'ANSIBLE_NET_PASSWORD') }}"
+    
   tasks:
     - name: Set backup command
       set_fact:
-        backup_username: "{{ lookup('env', 'ANSIBLE_NET_USERNAME') }}"
-        backup_password: "{{ lookup('env', 'ANSIBLE_NET_PASSWORD') }}"
         backup_command: "execute backup config sftp {{ backup_filename }} {{ backup_server }} {{ backup_username }} {{ backup_password }}"
 
-    
     - name: Display the backup command
       debug:
         msg: "Executing command: {{ backup_command }}"
