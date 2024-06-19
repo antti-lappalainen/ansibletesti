@@ -8,5 +8,5 @@
         backup_timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
     
     - name: Run the backup command
-      raw: "execute backup config sftp fortibackup_{{ backup_timestamp }}.txt 10.241.14.10:22 jc Vc9dq2WFiX8kG0OnTuhF"
+      raw: "execute backup config sftp fortibackup_{{ backup_timestamp }}.txt 10.241.14.10:22 {{ backup_username }} {{ backup_password }}"
       register: backup_command_output
