@@ -1,8 +1,7 @@
 ---
-- name: Backup current configuration from Fortigate firewall to SFTP server
+- name: Execute command on remote host
   hosts: 10.241.14.12
   gather_facts: no
-
   tasks:
-    - name: Run backup command
-        cmd: "execute backup config sftp fortibackup.txt 10.241.14.10:22 jc Vc9dq2WFiX8kG0OnTuhF"
+    - name: Run the 'show' command
+      raw: execute backup config sftp fortibackup.txt 10.241.14.10:22 jc Vc9dq2WFiX8kG0OnTuhF
