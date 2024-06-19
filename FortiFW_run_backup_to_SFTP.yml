@@ -3,7 +3,7 @@
   hosts: 10.241.14.12
   gather_facts: no
   vars:
-    backup_filename: "fortibackup_{{ ansible_date_time.iso8601 }}.txt"
+    backup_filename: "fortibackup_{{ ansible_date_time.date }}.txt"
   tasks:
     - name: Run the backup command
       raw: "execute backup config sftp {{ backup_filename }} 10.241.14.10:22 jc Vc9dq2WFiX8kG0OnTuhF"
