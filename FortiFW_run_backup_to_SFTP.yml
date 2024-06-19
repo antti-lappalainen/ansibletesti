@@ -8,7 +8,10 @@
   tasks:
     - name: Set backup command
       set_fact:
-        backup_command: "execute backup config sftp {{ backup_filename }} {{ backup_server }} {{ ansible_user }} {{ ansible_ssh_pass }}"
+        backup_username: "{{ lookup('env', 'ANSIBLE_NET_USERNAME') }}"
+        backup_password: "{{ lookup('env', 'ANSIBLE_NET_PASSWORD') }}"
+        backup_command: "execute backup config sftp {{ backup_filename }} {{ backup_server }} {{ backup_username }} {{ backup_password }}"
+
     
     - name: Display the backup command
       debug:
