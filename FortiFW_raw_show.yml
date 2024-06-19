@@ -5,3 +5,8 @@
   tasks:
     - name: Run the 'show' command
       raw: show
+      register: show_command_output
+
+    - name: Display the output of the 'show' command
+      debug:
+        var: show_command_output.stdout
